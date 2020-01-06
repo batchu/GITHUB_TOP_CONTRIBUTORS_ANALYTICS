@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WMA QA Github Contribution Statistics</title>
+    <script src="https://unpkg.com/ag-grid-community/dist/ag-grid-community.min.noStyle.js"></script>
+    <script src="contribs.js"></script>
+    <style>
+    .foot { display: inline-block; line-height: 70px; vertical-align: top }
+
+.img { display: inline-block;  }
+</style>
+    <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-grid.css">
+    <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-theme-balham.css">
+</head>
+<body>
+        <div class="siteFooterBar">
+                <div class="content">
+                    <img src="logo.png" width="150px" height="50px">
+                </div>
+            </div>
+<div id="myGrid" style="height: 500px; width:500px;" class="ag-theme-balham"></div>
+<script type="text/javascript" charset="utf-8">
+    const columnDefs = [
+        {headerName: 'Github Username', field: 'username'},
+        {headerName: 'Number of Commits', field: 'commits',
+        sort: 'desc'}
+    ];
+    const rowData = contribs
+    const gridOptions = {
+        columnDefs: columnDefs,
+        rowData: rowData,
+        enableSorting: true,
+        enableFilter: true,
+        pagination: true
+    };
+    const eGridDiv = document.querySelector('#myGrid');
+    new agGrid.Grid(eGridDiv, gridOptions);
+</script>
+</body>
+</html>
